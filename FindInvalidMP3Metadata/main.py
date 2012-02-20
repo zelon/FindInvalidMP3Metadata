@@ -18,10 +18,16 @@ import eyeD3
 
 def hasValidCharacter(checkString):
     
-    checkMeangless = ["AudioTrack", "no artist", "no title", 'none']
+    checkMeangless = ["AudioTrack", "no artist", "no title", 'none', '음악가' ]
     
     for meaning in checkMeangless:
         if checkString.lower().find(meaning.lower()) != -1:
+            return False
+    
+    checkMeaninglessExactSame = ["음악가", "트랙", "앨범"]
+
+    for meaning in checkMeaninglessExactSame:
+        if checkString.lower() == meaning.lower() != -1:
             return False
     
     uniString = unicode(checkString)
